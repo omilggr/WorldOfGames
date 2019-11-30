@@ -15,7 +15,7 @@ def get_guess_from_user(difficulty):
     success = False
     while not success:
         try:
-            user_number = int(input('Please enter a number between 1 and %s: ' % difficulty))
+            user_number = input('Please enter a number between 1 and %s: ' % difficulty)
             success = 1 <= user_number <= difficulty
 
             if not success:
