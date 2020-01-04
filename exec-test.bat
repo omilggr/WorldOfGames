@@ -1,0 +1,1 @@
+docker exec -it worldofgames_world_of_games_1 ./e2e.sh
