@@ -1,0 +1,8 @@
+version: "3"
+services: 
+  world_of_games: 
+    build: "."
+    ports: 
+      - "5000:8777"
+
+
