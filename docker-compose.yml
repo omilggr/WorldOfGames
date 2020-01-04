@@ -3,6 +3,6 @@ services:
   world_of_games: 
     build: "."
     ports: 
-      - "5000:8777"
+      - "8777:8777"
 
 
