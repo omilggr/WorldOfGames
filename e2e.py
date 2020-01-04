@@ -1,5 +1,6 @@
 # import webdriver from selenium package
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 
 import Utils
@@ -8,28 +9,34 @@ import Utils
 def test_scores_service(app_url):
     result = True
 
-    # set chrome options to run headless
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    try:
+        # set chrome options to run headless
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
 
-    # open chrome via webdriver
-    driver = webdriver.Chrome(options=chrome_options)
-    # wait a bit for browser to be ready
-    driver.implicitly_wait(10)
+        # open chrome via webdriver
+        driver = webdriver.Chrome(options=chrome_options)
+        # wait a bit for browser to be ready
+        driver.implicitly_wait(10)
 
-    # navigate to score site
-    driver.get(app_url)
+        # navigate to score site
+        driver.get(app_url)
 
-    # look for score element in DOM
-    score = driver.find_element_by_id("score")
+        # look for score element in DOM
+        score = driver.find_element_by_id("score")
 
-    # validate the score value
-    result = validate_score(score.text)
-    print(score.text)
-    print(result)
-    return result
+        # validate the score value
+        result = validate_score(score.text)
+        print(score.text)
+        print(result)
+        return result
+    except NoSuchElementException as ex:
+        print(ex)
+    except:
+        print(Utils.ERROR_MESSAGE)
+
 
 
 # score validation function. Return True for valid value and false otherwise
