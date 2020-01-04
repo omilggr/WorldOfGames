@@ -34,4 +34,4 @@ def score_server():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', debug=False, threaded=True, port=8777)
+    app.run(host=Utils.HOST, debug=False, threaded=True, port=Utils.PORT)
