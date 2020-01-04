@@ -5,8 +5,8 @@ WorldOfGames project contains a package of two games:
 2. Guess Game - guess a number and see if you chose like the computer
 
 In addition, it contains:
-dockerfile - for building a docker image, with all required prerequisites
-docker-compose file - for deploing a docker
+dockerfile - for building a docker image, with all required prerequisites;
+docker-compose file - for deploing a docker;
 jenkinsfile - for automating building, deploying and testing the project
 
 
