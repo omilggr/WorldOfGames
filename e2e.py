@@ -1,13 +1,21 @@
 # import webdriver from selenium package
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 import Utils
 
 
 def test_scores_service(app_url):
     result = True
+
+    # set chrome options to run headless
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+
     # open chrome via webdriver
-    driver = webdriver.Chrome(executable_path=".\\chromedriver.exe")
+    driver = webdriver.Chrome(options=chrome_options)
     # wait a bit for browser to be ready
     driver.implicitly_wait(10)
 
